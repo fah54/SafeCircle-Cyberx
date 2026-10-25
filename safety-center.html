@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Safety Center | SafeCircle</title>
+
+    <!-- Use the team's shared stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* SafeCircle Safety Center: component styles only */
+        .sc-safety-center {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #25234B;
+            background: #F8F7FF;
+            min-height: 100vh;
+        }
+
+        .sc-safety-center *,
+        .sc-safety-center *::before,
+        .sc-safety-center *::after {
+            box-sizing: border-box;
+        }
+
+        .sc-safety-center .sc-container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .sc-safety-center .sc-topbar {
+            background: #FFFFFF;
+            border-bottom: 1px solid #ECE5FF;
+        }
+
+        .sc-safety-center .sc-topbar-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .sc-safety-center .sc-brand {
+            color: #5424A8;
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -0.7px;
+        }
+
+        .sc-safety-center .sc-brand-mark {
+            display: inline-grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            margin-right: 8px;
+            border-radius: 10px;
+            background: #EEE5FF;
+            color: #5424A8;
+            font-size: 19px;
+        }
+
+        .sc-safety-center .sc-home-link {
+            color: #5424A8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .sc-safety-center .sc-home-link:hover {
+            text-decoration: underline;
+        }
+
+        .sc-safety-center .sc-hero {
+            margin: 34px 0 30px;
+            padding: clamp(24px, 5vw, 48px);
+            background: #EEE5FF;
+            border: 1px solid #ECE5FF;
+            border-radius: 18px;
+        }
+
+        .sc-safety-center .sc-eyebrow {
+            margin: 0 0 12px;
+            color: #5424A8;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .sc-safety-center .sc-hero h1 {
+            max-width: 720px;
+            margin: 0 0 16px;
+            color: #25234B;
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.18;
+            letter-spacing: -1px;
+        }
+
+        .sc-safety-center .sc-hero h1 span {
+            color: #5424A8;
+        }
+
+        .sc-safety-center .sc-hero-description {
+            max-width: 680px;
+            margin: 0;
+            color: #655D80;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .sc-safety-center .sc-section-heading {
+            margin: 0 0 6px;
+            color: #25234B;
+            font-size: clamp(23px, 3vw, 29px);
+            font-weight: 750;
+        }
+
+        .sc-safety-center .sc-section-description {
+            margin: 0 0 24px;
+            color: #655D80;
+            font-size: 15px;
+        }
+
+        .sc-safety-center .sc-category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .sc-safety-center .sc-category-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 0;
+            padding: 25px;
+            background: #FFFFFF;
+            border: 1px solid #ECE5FF;
+            border-radius: 18px;
+            color: #25234B;
+            text-decoration: none;
+            box-shadow: 0 5px 18px rgba(84, 36, 168, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease,
+                        border-color 0.2s ease;
+        }
+
+        .sc-safety-center .sc-category-card:hover {
+            transform: translateY(-3px);
+            border-color: #7844D0;
+            box-shadow: 0 10px 24px rgba(84, 36, 168, 0.10);
+        }
+
+        .sc-safety-center .sc-category-card:focus-visible {
+            outline: 3px solid #7844D0;
+            outline-offset: 3px;
+        }
+
+        .sc-safety-center .sc-card-icon {
+            display: grid;
+            place-items: center;
+            width: 54px;
+            height: 54px;
+            margin-bottom: 19px;
+            border-radius: 15px;
+            background: #EEE5FF;
+            color: #5424A8;
+            font-size: 26px;
+        }
+
+        .sc-safety-center .sc-icon-emergency {
+            background: #FFF0F7;
+        }
+
+        .sc-safety-center .sc-category-card h3 {
+            margin: 0 0 9px;
+            color: #25234B;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        .sc-safety-center .sc-category-card p {
+            margin: 0 0 20px;
+            color: #655D80;
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .sc-safety-center .sc-card-link {
+            margin-top: auto;
+            color: #5424A8;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .sc-safety-center .sc-message-card {
+            border-top: 3px solid #5424A8;
+        }
+
+        .sc-safety-center .sc-profile-card {
+            border-top: 3px solid #7844D0;
+        }
+
+        .sc-safety-center .sc-harassment-card {
+            border-top: 3px solid #7844D0;
+        }
+
+        .sc-safety-center .sc-emergency-card {
+            border-top: 3px solid #D94C88;
+        }
+
+        .sc-safety-center .sc-privacy-note {
+            margin: 28px 0 36px;
+            padding: 22px;
+            background: #FFFFFF;
+            border: 1px solid #ECE5FF;
+            border-radius: 18px;
+        }
+
+        .sc-safety-center .sc-privacy-note h3 {
+            margin: 0 0 7px;
+            color: #25234B;
+            font-size: 17px;
+        }
+
+        .sc-safety-center .sc-privacy-note p {
+            margin: 0;
+            color: #655D80;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .sc-safety-center .sc-footer {
+            padding: 23px 20px;
+            background: #211D48;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .sc-safety-center .sc-footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 640px) {
+            .sc-safety-center .sc-container {
+                width: calc(100% - 28px);
+            }
+
+            .sc-safety-center .sc-topbar-inner {
+                min-height: 68px;
+            }
+
+            .sc-safety-center .sc-brand {
+                font-size: 21px;
+            }
+
+            .sc-safety-center .sc-brand-mark {
+                width: 30px;
+                height: 30px;
+                font-size: 17px;
+            }
+
+            .sc-safety-center .sc-home-link {
+                font-size: 12px;
+            }
+
+            .sc-safety-center .sc-hero {
+                margin-top: 22px;
+                padding: 24px 20px;
+            }
+
+            .sc-safety-center .sc-category-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .sc-safety-center .sc-category-card {
+                padding: 21px;
+            }
+
+            .sc-safety-center .sc-category-card h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sc-safety-center">
+
+        <!-- Page header -->
+        <div class="sc-topbar">
+            <div class="sc-container sc-topbar-inner">
+                <a class="sc-brand" href="index.html">
+                    <span class="sc-brand-mark" aria-hidden="true">♡</span>
+                    SafeCircle
+                </a>
+
+                <a class="sc-home-link" href="index.html">
+                    ← Main Homepage
+                </a>
+            </div>
+        </div>
+
+        <main class="sc-container">
+
+            <!-- Welcome section -->
+            <section class="sc-hero">
+                <p class="sc-eyebrow">YOUR DIGITAL SAFETY COMPANION</p>
+
+                <h1>
+                    Welcome to your
+                    <span>Safety Center.</span>
+                </h1>
+
+                <p class="sc-hero-description">
+                    Choose the type of concern you have. Explore warning
+                    signs, review suspicious activity, and find practical
+                    safety guidance in one place.
+                </p>
+            </section>
+
+            <!-- Safety categories -->
+            <section aria-labelledby="sc-category-title">
+                <h2 class="sc-section-heading" id="sc-category-title">
+                    How can we help you?
+                </h2>
+
+                <p class="sc-section-description">
+                    Select a category to explore its safety tools.
+                </p>
+
+                <div class="sc-category-grid">
+
+                    <a href="message-safety.html"
+                       class="sc-category-card sc-message-card">
+                        <div class="sc-card-icon" aria-hidden="true">⚠</div>
+
+                        <h3>Message Safety Analyzer</h3>
+
+                        <p>
+                            Check suspicious messages, links, OTP requests,
+                            urgent warnings and possible scam attempts.
+                        </p>
+
+                        <span class="sc-card-link">
+                            Analyze a message →
+                        </span>
+                    </a>
+
+                    <a href="profile-safety.html"
+                       class="sc-category-card sc-profile-card">
+                        <div class="sc-card-icon" aria-hidden="true">◎</div>
+
+                        <h3>Profile Safety Checker</h3>
+
+                        <p>
+                            Review unfamiliar accounts and identify common
+                            warning signs of potentially fake profiles.
+                        </p>
+
+                        <span class="sc-card-link">
+                            Check a profile →
+                        </span>
+                    </a>
+
+                    <a href="harassment-support.html"
+                       class="sc-category-card sc-harassment-card">
+                        <div class="sc-card-icon" aria-hidden="true">♡</div>
+
+                        <h3>Online Harassment Support</h3>
+
+                        <p>
+                            Explore guidance for unwanted contact,
+                            cyberbullying, online threats and abuse.
+                        </p>
+
+                        <span class="sc-card-link">
+                            Explore support →
+                        </span>
+                    </a>
+
+                    <a href="emergency-help.html"
+                       class="sc-category-card sc-emergency-card">
+                        <div class="sc-card-icon sc-icon-emergency"
+                             aria-hidden="true">✚</div>
+
+                        <h3>Emergency Help Center</h3>
+
+                        <p>
+                            Find practical safety steps and guidance for
+                            contacting emergency services or trusted people.
+                        </p>
+
+                        <span class="sc-card-link">
+                            Find help →
+                        </span>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- Privacy reminder -->
+            <section class="sc-privacy-note">
+                <h3>Your privacy matters.</h3>
+
+                <p>
+                    Do not share passwords, OTPs, banking details or other
+                    highly sensitive information. Safety checks provide
+                    guidance and cannot guarantee that a message or account
+                    is safe.
+                </p>
+            </section>
+
+        </main>
+
+        <!-- Page footer -->
+        <div class="sc-footer">
+            <p>SafeCircle · Stay aware. Stay safer.</p>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Harassment Support | SafeCircle</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .ohs-page {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #F8F7FF;
+      color: #25234B;
+      min-height: 100vh;
+      padding: 24px 16px;
+      box-sizing: border-box;
+    }
+
+    .ohs-container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .ohs-topbar, .ohs-card {
+      background: #FFFFFF;
+      border: 1px solid #ECE5FF;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 22px;
+    }
+
+    .ohs-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ohs-logo {
+      color: #5424A8;
+      font-size: 23px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .ohs-back {
+      color: #5424A8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .ohs-heading {
+      text-align: center;
+      margin: 36px 0 26px;
+    }
+
+    .ohs-heading h2 {
+      color: #5424A8;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .ohs-heading p, .ohs-muted {
+      color: #655D80;
+      line-height: 1.7;
+    }
+
+    .ohs-card h3 {
+      color: #5424A8;
+      margin-top: 0;
+    }
+
+    .ohs-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid #ECE5FF;
+      line-height: 1.6;
+    }
+
+    .ohs-step:last-child {
+      border-bottom: none;
+    }
+
+    .ohs-number {
+      background: #EEE5FF;
+      color: #5424A8;
+      min-width: 34px;
+      height: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-weight: 800;
+    }
+
+    .ohs-button {
+      display: inline-block;
+      background: #5424A8;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 11px;
+      padding: 13px 18px;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .ohs-button:hover {
+      background: #7844D0;
+    }
+
+    .ohs-secondary {
+      background: #EEE5FF;
+      color: #5424A8;
+    }
+
+    .ohs-secondary:hover {
+      background: #E0D2FF;
+    }
+
+    .ohs-alert {
+      background: #FFF0F7;
+      border: 1px solid #F1BCD8;
+      border-radius: 14px;
+      padding: 18px;
+      line-height: 1.7;
+    }
+
+    .ohs-footer {
+      background: #211D48;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      border-radius: 16px;
+      margin-top: 28px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .ohs-heading h2 {
+        font-size: 25px;
+      }
+
+      .ohs-card, .ohs-topbar {
+        padding: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="ohs-page">
+    <div class="ohs-container">
+
+      <div class="ohs-topbar">
+        <h1 class="ohs-logo">SafeCircle</h1>
+        <a class="ohs-back" href="safety-center.html">← Back to Safety Center</a>
+      </div>
+
+      <section class="ohs-heading">
+        <h2>Online Harassment Support</h2>
+        <p>You deserve to feel safe online. Find practical steps and support options below.</p>
+      </section>
+
+      <section class="ohs-card">
+        <h3>What can you do right now?</h3>
+
+        <div class="ohs-step">
+          <span class="ohs-number">1</span>
+          <div>
+            <strong>Prioritize your safety</strong>
+            <p class="ohs-muted">If you feel in immediate danger, move to a safe place and contact someone you trust or local emergency services.</p>
+          </div>
+        </div>
+
+        <div class="ohs-step">
+          <span class="ohs-number">2</span>
+          <div>
+            <strong>Preserve evidence safely</strong>
+            <p class="ohs-muted">Where safe and lawful, save screenshots, usernames, profile links, dates, and relevant messages. Store them somewhere secure.</p>
+          </div>
+        </div>
+
+        <div class="ohs-step">
+          <span class="ohs-number">3</span>
+          <div>
+            <strong>Block and report</strong>
+            <p class="ohs-muted">Use the platform's reporting tools. Consider restricting or blocking the account if it is safe for you to do so.</p>
+          </div>
+        </div>
+
+        <div class="ohs-step">
+          <span class="ohs-number">4</span>
+          <div>
+            <strong>Secure your account</strong>
+            <p class="ohs-muted">Review privacy settings, change a compromised password from a trusted device, and enable two-factor authentication.</p>
+          </div>
+        </div>
+
+        <div class="ohs-step">
+          <span class="ohs-number">5</span>
+          <div>
+            <strong>Reach out for support</strong>
+            <p class="ohs-muted">Tell a trusted friend, family member, teacher, or support professional. You do not have to handle harassment alone.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="ohs-card">
+        <h3>What kind of support do you need?</h3>
+        <p class="ohs-muted">Choose a topic to see a few practical suggestions.</p>
+
+        <label for="ohs-topic"><strong>Select a situation</strong></label>
+        <select id="ohs-topic" style="width:100%;padding:13px;margin:12px 0 18px;border:1px solid #CEC0F4;border-radius:11px;background:#FAF8FF;color:#25234B;font:inherit;">
+          <option value="">Choose a situation</option>
+          <option value="messages">Abusive or threatening messages</option>
+          <option value="blackmail">Blackmail or threats to share private images</option>
+          <option value="impersonation">Fake account or impersonation</option>
+          <option value="privacy">Privacy or account security concerns</option>
+        </select>
+
+        <button class="ohs-button" id="ohs-show" type="button">Show guidance</button>
+
+        <div id="ohs-guidance" class="ohs-alert" style="display:none;margin-top:18px;" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="ohs-card">
+        <h3>Support in India</h3>
+
+        <div class="ohs-alert">
+          <strong>Emergency: 112</strong>
+          <p>If you face immediate danger, call India's emergency response number.</p>
+          <a class="ohs-button" href="tel:112">Call 112</a>
+        </div>
+
+        <p class="ohs-muted">
+          For cybercrime reporting in India, visit the official
+          <a href="https://cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">National Cyber Crime Reporting Portal</a>.
+          You can also seek help through the appropriate police or cybercrime unit.
+        </p>
+
+        <p class="ohs-muted">
+          If intimate images are involved, avoid forwarding or reposting them.
+          Preserve relevant evidence safely and seek trusted or professional support.
+        </p>
+      </section>
+
+      <p class="ohs-muted" style="text-align:center;font-size:13px;">
+        SafeCircle provides general guidance and is not a substitute for emergency services or professional legal advice.
+      </p>
+
+      <footer class="ohs-footer">
+        SafeCircle · Your safety matters.
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    const ohsShow = document.getElementById("ohs-show");
+    const ohsTopic = document.getElementById("ohs-topic");
+    const ohsGuidance = document.getElementById("ohs-guidance");
+
+    const guidance = {
+      messages: {
+        title: "Abusive or threatening messages",
+        text: "Avoid escalating the conversation. Save relevant evidence if safe, report the account, block or restrict the sender, and tell someone you trust. If a threat seems immediate or credible, contact emergency services."
+      },
+      blackmail: {
+        title: "Blackmail or threats involving private images",
+        text: "You are not to blame. Do not send more images or money because of threats. Preserve relevant evidence safely, avoid forwarding intimate images, report the account, and seek help from a trusted person or the official cybercrime reporting portal. If you are in immediate danger, call 112."
+      },
+      impersonation: {
+        title: "Fake account or impersonation",
+        text: "Save the profile link and relevant screenshots where safe. Report the account to the platform for impersonation. Warn affected contacts through a trusted channel and secure your own accounts."
+      },
+      privacy: {
+        title: "Privacy or account security",
+        text: "Use a trusted device to change your password if you suspect compromise. Enable two-factor authentication, review logged-in devices and recovery details, and tighten privacy settings. Never share an OTP or password."
+      }
+    };
+
+    ohsShow.addEventListener("click", function () {
+      const selected = guidance[ohsTopic.value];
+
+      if (!selected) {
+        ohsGuidance.style.display = "block";
+        ohsGuidance.textContent = "Please select a situation first.";
+        return;
+      }
+
+      ohsGuidance.replaceChildren();
+
+      const heading = document.createElement("h4");
+      heading.textContent = selected.title;
+
+      const paragraph = document.createElement("p");
+      paragraph.textContent = selected.text;
+
+      ohsGuidance.append(heading, paragraph);
+      ohsGuidance.style.display = "block";
+    });
+  </script>
+</body>
+</html>

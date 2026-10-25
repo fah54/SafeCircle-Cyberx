@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Help Center | SafeCircle</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .ehc-page {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #F8F7FF;
+      color: #25234B;
+      min-height: 100vh;
+      padding: 24px 16px;
+      box-sizing: border-box;
+    }
+
+    .ehc-container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .ehc-topbar, .ehc-card {
+      background: #FFFFFF;
+      border: 1px solid #ECE5FF;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 22px;
+    }
+
+    .ehc-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ehc-logo {
+      color: #5424A8;
+      font-size: 23px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .ehc-back {
+      color: #5424A8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .ehc-heading {
+      text-align: center;
+      margin: 36px 0 26px;
+    }
+
+    .ehc-heading h2 {
+      color: #5424A8;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .ehc-heading p, .ehc-muted {
+      color: #655D80;
+      line-height: 1.7;
+    }
+
+    .ehc-emergency {
+      background: #FFF0F7;
+      border: 1px solid #F1BCD8;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 24px;
+    }
+
+    .ehc-emergency h3 {
+      color: #852552;
+      margin-top: 0;
+    }
+
+    .ehc-number {
+      font-size: 34px;
+      font-weight: 800;
+      color: #5424A8;
+      margin: 8px 0;
+    }
+
+    .ehc-button {
+      display: inline-block;
+      background: #5424A8;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 11px;
+      padding: 13px 18px;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      margin: 6px 5px 6px 0;
+    }
+
+    .ehc-button:hover {
+      background: #7844D0;
+    }
+
+    .ehc-secondary {
+      background: #EEE5FF;
+      color: #5424A8;
+    }
+
+    .ehc-secondary:hover {
+      background: #E0D2FF;
+    }
+
+    .ehc-help-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .ehc-help-item {
+      background: #F8F7FF;
+      border: 1px solid #ECE5FF;
+      border-radius: 14px;
+      padding: 18px;
+      line-height: 1.6;
+    }
+
+    .ehc-help-item h4 {
+      color: #5424A8;
+      margin-top: 0;
+    }
+
+    .ehc-list li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .ehc-footer {
+      background: #211D48;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      border-radius: 16px;
+      margin-top: 28px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .ehc-heading h2 {
+        font-size: 25px;
+      }
+
+      .ehc-card, .ehc-topbar {
+        padding: 19px;
+      }
+
+      .ehc-help-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="ehc-page">
+    <div class="ehc-container">
+
+      <div class="ehc-topbar">
+        <h1 class="ehc-logo">SafeCircle</h1>
+        <a class="ehc-back" href="safety-center.html">← Back to Safety Center</a>
+      </div>
+
+      <section class="ehc-heading">
+        <h2>Emergency Help Center</h2>
+        <p>Find practical safety steps and trusted support resources when you need help.</p>
+      </section>
+
+      <section class="ehc-emergency">
+        <h3>🚨 Immediate danger?</h3>
+        <p>If you are in immediate danger, move to a safer place if possible and contact emergency services or someone you trust.</p>
+        <div class="ehc-number">112</div>
+        <p>India's emergency response number</p>
+        <a class="ehc-button" href="tel:112">Call 112</a>
+        <p class="ehc-muted">Use the call option only when you need emergency assistance. This website does not automatically contact emergency services.</p>
+      </section>
+
+      <section class="ehc-card">
+        <h3>What do you need help with?</h3>
+
+        <div class="ehc-help-grid">
+          <div class="ehc-help-item">
+            <h4>Online threats or harassment</h4>
+            <p>Keep relevant evidence safely, report the account, block the sender when appropriate, and seek help from someone you trust.</p>
+            <a class="ehc-button ehc-secondary" href="harassment-support.html">Get Support</a>
+          </div>
+
+          <div class="ehc-help-item">
+            <h4>Suspicious messages</h4>
+            <p>Check for common warning signs before clicking links, sending money, or sharing personal information.</p>
+            <a class="ehc-button ehc-secondary" href="message-safety.html">Check Message</a>
+          </div>
+
+          <div class="ehc-help-item">
+            <h4>Fake or impersonation profiles</h4>
+            <p>Review suspicious behaviour and learn how to verify an account before trusting it.</p>
+            <a class="ehc-button ehc-secondary" href="profile-safety.html">Check Profile</a>
+          </div>
+
+          <div class="ehc-help-item">
+            <h4>Cybercrime in India</h4>
+            <p>Access the official Government of India's National Cyber Crime Reporting Portal for reporting cybercrime.</p>
+            <a class="ehc-button ehc-secondary" href="https://cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">Official Portal</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ehc-card">
+        <h3>Quick safety checklist</h3>
+        <ul class="ehc-list">
+          <li>Tell a trusted person what is happening.</li>
+          <li>Do not share passwords, OTPs, banking details, or private images.</li>
+          <li>Save relevant evidence securely when it is safe to do so.</li>
+          <li>Secure your accounts and enable two-factor authentication.</li>
+          <li>Report threats through the relevant platform or authorities.</li>
+        </ul>
+      </section>
+
+      <section class="ehc-card">
+        <h3>Make a simple safety plan</h3>
+        <p class="ehc-muted">Use this checklist to think about your next steps. Your selections stay on this page and are not submitted anywhere.</p>
+
+        <label style="display:block;margin:14px 0;">
+          <input type="checkbox" class="ehc-check"> I have identified a trusted person I can contact.
+        </label>
+
+        <label style="display:block;margin:14px 0;">
+          <input type="checkbox" class="ehc-check"> I know how to block or report the account.
+        </label>
+
+        <label style="display:block;margin:14px 0;">
+          <input type="checkbox" class="ehc-check"> I have secured my passwords and privacy settings.
+        </label>
+
+        <label style="display:block;margin:14px 0;">
+          <input type="checkbox" class="ehc-check"> I know where to seek further help if needed.
+        </label>
+
+        <p id="ehc-progress" class="ehc-muted" role="status" aria-live="polite">0 of 4 steps completed.</p>
+      </section>
+
+      <p class="ehc-muted" style="text-align:center;font-size:13px;">
+        SafeCircle provides general information. It does not automatically alert police,
+        track your location, or provide a live emergency response.
+      </p>
+
+      <footer class="ehc-footer">
+        SafeCircle · Your safety matters.
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    const ehcChecks = document.querySelectorAll(".ehc-check");
+    const ehcProgress = document.getElementById("ehc-progress");
+
+    function updateProgress() {
+      const completed = Array.from(ehcChecks).filter(function (check) {
+        return check.checked;
+      }).length;
+
+      ehcProgress.textContent = completed + " of 4 steps completed.";
+    }
+
+    ehcChecks.forEach(function (check) {
+      check.addEventListener("change", updateProgress);
+    });
+  </script>
+</body>
+</html>

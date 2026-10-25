@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Safety Analyzer | SafeCircle</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .msa-page {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #F8F7FF;
+      color: #25234B;
+      min-height: 100vh;
+      padding: 24px 16px;
+      box-sizing: border-box;
+    }
+
+    .msa-container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .msa-topbar {
+      background: #FFFFFF;
+      border: 1px solid #ECE5FF;
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .msa-logo {
+      color: #5424A8;
+      font-size: 23px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .msa-back {
+      color: #5424A8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .msa-heading {
+      text-align: center;
+      margin: 36px 0 24px;
+    }
+
+    .msa-heading h2 {
+      font-size: 30px;
+      margin: 0 0 10px;
+      color: #5424A8;
+    }
+
+    .msa-heading p {
+      color: #655D80;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .msa-card {
+      background: #FFFFFF;
+      border: 1px solid #ECE5FF;
+      border-radius: 18px;
+      padding: 26px;
+      margin-bottom: 22px;
+      box-shadow: 0 5px 18px rgba(84, 36, 168, 0.06);
+    }
+
+    .msa-label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .msa-textarea {
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 180px;
+      padding: 15px;
+      border: 1px solid #CEC0F4;
+      border-radius: 11px;
+      background: #FAF8FF;
+      color: #25234B;
+      font: inherit;
+      resize: vertical;
+    }
+
+    .msa-textarea:focus {
+      outline: 2px solid #7844D0;
+      border-color: #7844D0;
+    }
+
+    .msa-note {
+      color: #655D80;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 10px 0 18px;
+    }
+
+    .msa-button {
+      background: #5424A8;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 11px;
+      padding: 13px 20px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .msa-button:hover {
+      background: #7844D0;
+    }
+
+    .msa-button:focus-visible {
+      outline: 3px solid #CEC0F4;
+      outline-offset: 3px;
+    }
+
+    .msa-clear {
+      display: block;
+      margin: 12px auto 0;
+      border: none;
+      background: transparent;
+      color: #5424A8;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .msa-result {
+      display: none;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 20px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .msa-result h3 {
+      margin: 0 0 8px;
+    }
+
+    .msa-result ul {
+      padding-left: 22px;
+    }
+
+    .msa-result p {
+      margin-bottom: 0;
+    }
+
+    .msa-result-low {
+      display: block;
+      background: #F0F8F1;
+      border: 1px solid #B7DCC0;
+      color: #245B35;
+    }
+
+    .msa-result-medium {
+      display: block;
+      background: #FFF7E8;
+      border: 1px solid #F0D39A;
+      color: #755016;
+    }
+
+    .msa-result-high {
+      display: block;
+      background: #FFF0F7;
+      border: 1px solid #F1BCD8;
+      color: #852552;
+    }
+
+    .msa-disclaimer {
+      font-size: 13px;
+      color: #655D80;
+      line-height: 1.6;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .msa-footer {
+      background: #211D48;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      border-radius: 16px;
+      margin-top: 28px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .msa-heading h2 {
+        font-size: 25px;
+      }
+
+      .msa-card {
+        padding: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="msa-page">
+    <div class="msa-container">
+
+      <div class="msa-topbar">
+        <h1 class="msa-logo">SafeCircle</h1>
+        <a class="msa-back" href="safety-center.html">← Back to Safety Center</a>
+      </div>
+
+      <section class="msa-heading">
+        <h2>Message Safety Analyzer</h2>
+        <p>Think before you click. Check suspicious messages for common warning signs.</p>
+      </section>
+
+      <section class="msa-card">
+        <label class="msa-label" for="msa-message">
+          Paste your suspicious message
+        </label>
+
+        <textarea
+          class="msa-textarea"
+          id="msa-message"
+          placeholder="Paste an SMS, email, or chat message here..."
+          maxlength="10000"
+        ></textarea>
+
+        <p class="msa-note">
+          Your message is checked in this browser using simple warning-sign rules.
+          Avoid pasting passwords, OTPs, bank details, or other private information.
+        </p>
+
+        <button class="msa-button" id="msa-check" type="button">
+          Check Message Safety
+        </button>
+
+        <button class="msa-clear" id="msa-clear" type="button">
+          Clear message
+        </button>
+
+        <div
+          class="msa-result"
+          id="msa-result"
+          role="status"
+          aria-live="polite"
+          tabindex="-1"
+        ></div>
+      </section>
+
+      <section class="msa-card">
+        <h3>Stay safe online</h3>
+        <ul>
+          <li>Never share your OTP or password.</li>
+          <li>Do not click links from unexpected messages.</li>
+          <li>Verify urgent payment requests through a trusted channel.</li>
+          <li>Block and report suspicious senders when appropriate.</li>
+        </ul>
+      </section>
+
+      <p class="msa-disclaimer">
+        This is a basic prototype, not an AI-powered detector. Results may be
+        incorrect. A low-risk result does not guarantee that a message is safe.
+      </p>
+
+      <footer class="msa-footer">
+        SafeCircle · Your safety matters.
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    const messageInput = document.getElementById("msa-message");
+    const checkButton = document.getElementById("msa-check");
+    const clearButton = document.getElementById("msa-clear");
+    const resultBox = document.getElementById("msa-result");
+
+    checkButton.addEventListener("click", function () {
+      const message = messageInput.value.trim();
+
+      if (!message) {
+        resultBox.className = "msa-result msa-result-medium";
+        resultBox.textContent = "Please paste a message before checking.";
+        resultBox.focus();
+        return;
+      }
+
+      const text = message.toLowerCase();
+      const warningSigns = [
+        {
+          pattern: /\b(otp|password|pin|cvv)\b/i,
+          reason: "The message mentions sensitive security information."
+        },
+        {
+          pattern: /\b(urgent|immediately|act now|account suspended|blocked account)\b/i,
+          reason: "It uses urgent or threatening language."
+        },
+        {
+          pattern: /\b(prize|winner|won|lottery|free gift|claim reward)\b/i,
+          reason: "It may be using a prize or reward to attract attention."
+        },
+        {
+          pattern: /\b(send money|transfer money|payment required|pay now)\b/i,
+          reason: "It asks for money or payment."
+        },
+        {
+          pattern: /\b(verify your account|confirm your details|click here|login now)\b/i,
+          reason: "It asks you to verify details or take an online action."
+        },
+        {
+          pattern: /https?:\/\/|www\./i,
+          reason: "It contains a web link. Check the destination carefully before opening it."
+        }
+      ];
+
+      const matchedReasons = warningSigns
+        .filter(function (item) {
+          return item.pattern.test(text);
+        })
+        .map(function (item) {
+          return item.reason;
+        });
+
+      let level;
+      let title;
+      let advice;
+      let resultClass;
+
+      if (matchedReasons.length >= 2) {
+        level = "HIGH";
+        title = "High number of warning signs";
+        advice = "Do not click links, send money, or share sensitive information. Verify the sender independently.";
+        resultClass = "msa-result-high";
+      } else if (matchedReasons.length === 1) {
+        level = "CAUTION";
+        title = "Some warning signs found";
+        advice = "Pause and verify the message through an official website, app, or trusted contact.";
+        resultClass = "msa-result-medium";
+      } else {
+        level = "NO COMMON WARNING SIGNS DETECTED";
+        title = "No common warning signs detected";
+        advice = "This does not prove the message is safe. Check the sender and context before taking action.";
+        resultClass = "msa-result-low";
+      }
+
+      resultBox.className = "msa-result " + resultClass;
+
+      const heading = document.createElement("h3");
+      heading.textContent = "Result: " + level;
+      resultBox.replaceChildren(heading);
+
+      const summary = document.createElement("p");
+      summary.textContent = title + ".";
+      resultBox.appendChild(summary);
+
+      if (matchedReasons.length > 0) {
+        const listTitle = document.createElement("p");
+        listTitle.textContent = "Warning signs:";
+        resultBox.appendChild(listTitle);
+
+        const list = document.createElement("ul");
+
+        matchedReasons.forEach(function (reason) {
+          const item = document.createElement("li");
+          item.textContent = reason;
+          list.appendChild(item);
+        });
+
+        resultBox.appendChild(list);
+      }
+
+      const guidance = document.createElement("p");
+      guidance.textContent = "Suggested action: " + advice;
+      resultBox.appendChild(guidance);
+
+      resultBox.focus();
+    });
+
+    clearButton.addEventListener("click", function () {
+      messageInput.value = "";
+      resultBox.className = "msa-result";
+      resultBox.replaceChildren();
+      messageInput.focus();
+    });
+  </script>
+</body>
+</html>

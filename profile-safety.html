@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Profile Safety Check | SafeCircle</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .psc-page {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #F8F7FF;
+      color: #25234B;
+      min-height: 100vh;
+      padding: 24px 16px;
+      box-sizing: border-box;
+    }
+
+    .psc-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .psc-topbar {
+      background: #FFFFFF;
+      border: 1px solid #ECE5FF;
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .psc-logo {
+      color: #5424A8;
+      font-size: 23px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .psc-back {
+      color: #5424A8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .psc-heading {
+      text-align: center;
+      margin: 36px 0 24px;
+    }
+
+    .psc-heading h2 {
+      color: #5424A8;
+      font-size: 30px;
+      margin: 0 0 10px;
+    }
+
+    .psc-heading p {
+      color: #655D80;
+      line-height: 1.6;
+    }
+
+    .psc-card {
+      background: #FFFFFF;
+      border: 1px solid #ECE5FF;
+      border-radius: 18px;
+      padding: 26px;
+      margin-bottom: 22px;
+      box-shadow: 0 5px 18px rgba(84, 36, 168, 0.06);
+    }
+
+    .psc-label {
+      display: block;
+      font-weight: 700;
+      margin: 18px 0 8px;
+    }
+
+    .psc-input,
+    .psc-select,
+    .psc-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px;
+      border: 1px solid #CEC0F4;
+      border-radius: 11px;
+      background: #FAF8FF;
+      color: #25234B;
+      font: inherit;
+    }
+
+    .psc-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .psc-input:focus,
+    .psc-select:focus,
+    .psc-textarea:focus {
+      outline: 2px solid #7844D0;
+      border-color: #7844D0;
+    }
+
+    .psc-hint {
+      font-size: 13px;
+      color: #655D80;
+      line-height: 1.6;
+    }
+
+    .psc-checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .psc-check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px;
+      background: #F8F7FF;
+      border: 1px solid #ECE5FF;
+      border-radius: 11px;
+      line-height: 1.5;
+    }
+
+    .psc-check-item input {
+      margin-top: 5px;
+      accent-color: #5424A8;
+      flex-shrink: 0;
+    }
+
+    .psc-button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      background: #5424A8;
+      color: white;
+      border: none;
+      border-radius: 11px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .psc-button:hover {
+      background: #7844D0;
+    }
+
+    .psc-clear {
+      display: block;
+      margin: 12px auto 0;
+      padding: 8px;
+      border: none;
+      background: transparent;
+      color: #5424A8;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .psc-result {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 14px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .psc-result-low {
+      display: block;
+      background: #F0F8F1;
+      border: 1px solid #B7DCC0;
+      color: #245B35;
+    }
+
+    .psc-result-medium {
+      display: block;
+      background: #FFF7E8;
+      border: 1px solid #F0D39A;
+      color: #755016;
+    }
+
+    .psc-result-high {
+      display: block;
+      background: #FFF0F7;
+      border: 1px solid #F1BCD8;
+      color: #852552;
+    }
+
+    .psc-result h3 {
+      margin-top: 0;
+    }
+
+    .psc-footer {
+      background: #211D48;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      border-radius: 16px;
+      margin-top: 28px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .psc-heading h2 {
+        font-size: 25px;
+      }
+
+      .psc-card {
+        padding: 19px;
+      }
+
+      .psc-checks {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="psc-page">
+    <div class="psc-container">
+
+      <div class="psc-topbar">
+        <h1 class="psc-logo">SafeCircle</h1>
+        <a class="psc-back" href="safety-center.html">← Back to Safety Center</a>
+      </div>
+
+      <section class="psc-heading">
+        <h2>Fake Profile Safety Check</h2>
+        <p>Learn to recognize suspicious online profiles before trusting them.</p>
+      </section>
+
+      <section class="psc-card">
+        <h3>Profile Details</h3>
+        <p class="psc-hint">
+          Enter only public, non-sensitive details. Do not enter passwords,
+          private messages, phone numbers, or personal identity information.
+        </p>
+
+        <form id="psc-form">
+          <label class="psc-label" for="psc-platform">Platform</label>
+          <select class="psc-select" id="psc-platform">
+            <option value="">Select platform</option>
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>WhatsApp</option>
+            <option>Telegram</option>
+            <option>Other</option>
+          </select>
+
+          <label class="psc-label" for="psc-age">How old does the account appear?</label>
+          <select class="psc-select" id="psc-age">
+            <option value="">Select account age</option>
+            <option value="new">Recently created</option>
+            <option value="old">Established account</option>
+            <option value="unknown">I don't know</option>
+          </select>
+
+          <label class="psc-label" for="psc-description">Anything unusual about the profile?</label>
+          <textarea
+            class="psc-textarea"
+            id="psc-description"
+            maxlength="1000"
+            placeholder="Example: copied photos, unusual username, very little profile information..."
+          ></textarea>
+
+          <label class="psc-label">Select any warning signs you noticed</label>
+
+          <div class="psc-checks">
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="photos">
+              <span>Profile photos may be copied or stolen</span>
+            </label>
+
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="new">
+              <span>Account was created recently</span>
+            </label>
+
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="details">
+              <span>Very little or inconsistent profile information</span>
+            </label>
+
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="money">
+              <span>Asks for money, gifts, or financial help</span>
+            </label>
+
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="links">
+              <span>Sends suspicious links or files</span>
+            </label>
+
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="pressure">
+              <span>Pressures me to share private photos or information</span>
+            </label>
+
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="impersonation">
+              <span>Claims to be someone I know but acts unusually</span>
+            </label>
+
+            <label class="psc-check-item">
+              <input type="checkbox" name="psc-sign" value="none">
+              <span>I have not noticed these warning signs</span>
+            </label>
+          </div>
+
+          <button class="psc-button" type="submit">
+            Check Profile Warning Signs
+          </button>
+
+          <button class="psc-clear" id="psc-clear" type="button">
+            Clear form
+          </button>
+        </form>
+
+        <div
+          class="psc-result"
+          id="psc-result"
+          role="status"
+          aria-live="polite"
+          tabindex="-1"
+        ></div>
+      </section>
+
+      <section class="psc-card">
+        <h3>Protect yourself</h3>
+        <ul>
+          <li>Verify identity through another trusted channel.</li>
+          <li>Never send money or private photos under pressure.</li>
+          <li>Review privacy settings and restrict unknown accounts.</li>
+          <li>Block and report accounts that threaten or impersonate you.</li>
+        </ul>
+      </section>
+
+      <p class="psc-hint">
+        This tool checks the warning signs you select. It cannot confirm whether
+        a person or account is genuine, and results may be incorrect.
+      </p>
+
+      <footer class="psc-footer">
+        SafeCircle · Your safety matters.
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    const pscForm = document.getElementById("psc-form");
+    const pscResult = document.getElementById("psc-result");
+    const pscClear = document.getElementById("psc-clear");
+
+    pscForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const accountAge = document.getElementById("psc-age").value;
+      const signs = Array.from(
+        document.querySelectorAll('input[name="psc-sign"]:checked')
+      ).map(function (checkbox) {
+        return checkbox.value;
+      });
+
+      const descriptions = {
+        photos: "Profile photos may be copied or stolen.",
+        new: "The account may be newly created.",
+        details: "Profile details may be limited or inconsistent.",
+        money: "The account asks for money or financial help.",
+        links: "The account sends suspicious links or files.",
+        pressure: "The account pressures you to share private content.",
+        impersonation: "The account may be impersonating someone you know."
+      };
+
+      const selectedSigns = signs.filter(function (sign) {
+        return sign !== "none";
+      });
+
+      if (signs.includes("none") && selectedSigns.length > 0) {
+        pscResult.className = "psc-result psc-result-medium";
+        pscResult.textContent =
+          'Please uncheck "I have not noticed these warning signs" if you selected other warning signs.';
+        pscResult.focus();
+        return;
+      }
+
+      if (accountAge === "new" && !selectedSigns.includes("new")) {
+        selectedSigns.push("new");
+      }
+
+      let level;
+      let resultClass;
+      let advice;
+
+      if (
+        selectedSigns.includes("money") ||
+        selectedSigns.includes("links") ||
+        selectedSigns.includes("pressure") ||
+        selectedSigns.includes("impersonation") ||
+        selectedSigns.length >= 3
+      ) {
+        level = "HIGH CAUTION";
+        resultClass = "psc-result-high";
+        advice = "Do not send money, click suspicious links, or share private information. Verify independently and block or report if needed.";
+      } else if (selectedSigns.length > 0 || accountAge === "unknown") {
+        level = "NEEDS CAUTION";
+        resultClass = "psc-result-medium";
+        advice = "Take time to verify the account through a trusted channel before interacting further.";
+      } else {
+        level = "FEW WARNING SIGNS REPORTED";
+        resultClass = "psc-result-low";
+        advice = "No warning signs were selected, but this does not prove the account is genuine. Continue to be cautious.";
+      }
+
+      pscResult.className = "psc-result " + resultClass;
+      pscResult.replaceChildren();
+
+      const heading = document.createElement("h3");
+      heading.textContent = "Result: " + level;
+      pscResult.appendChild(heading);
+
+      const summary = document.createElement("p");
+      summary.textContent =
+        "This is a preliminary check based on the details you selected.";
+      pscResult.appendChild(summary);
+
+      if (selectedSigns.length > 0) {
+        const listTitle = document.createElement("p");
+        listTitle.textContent = "Warning signs reported:";
+        pscResult.appendChild(listTitle);
+
+        const list = document.createElement("ul");
+
+        selectedSigns.forEach(function (sign) {
+          const item = document.createElement("li");
+          item.textContent = descriptions[sign];
+          list.appendChild(item);
+        });
+
+        pscResult.appendChild(list);
+      }
+
+      const guidance = document.createElement("p");
+      guidance.textContent = "Suggested action: " + advice;
+      pscResult.appendChild(guidance);
+
+      pscResult.focus();
+    });
+
+    pscClear.addEventListener("click", function () {
+      pscForm.reset();
+      pscResult.className = "psc-result";
+      pscResult.replaceChildren();
+    });
+  </script>
+</body>
+</html>
