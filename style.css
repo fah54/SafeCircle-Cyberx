@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8f7ff;
+    color: #25234b;
+    line-height: 1.6;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.97);
+    color: #30215f;
+    text-align: center;
+    padding: 22px 15px;
+    border-bottom: 1px solid #e8e0ff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+    color: #6335bd;
+}
+
+header p {
+    margin: 3px 0 0;
+    color: #68618a;
+}
+
+main {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 18px;
+}
+
+.welcome {
+    padding: 40px 25px;
+    margin-bottom: 25px;
+    border-radius: 22px;
+    background: linear-gradient(120deg, #eee5ff, #fff0f7);
+}
+
+.welcome h2 {
+    color: #42218c;
+    font-size: clamp(27px, 4vw, 42px);
+    line-height: 1.2;
+    margin: 0 0 12px;
+}
+
+.welcome p {
+    max-width: 600px;
+    color: #575078;
+}
+
+.card {
+    background: white;
+    margin: 22px 0;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #ece5ff;
+    box-shadow: 0 5px 20px rgba(65, 39, 120, 0.08);
+}
+
+.card h2 {
+    color: #4b2b98;
+    margin-top: 0;
+    font-size: 22px;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+    margin-top: 12px;
+    padding: 14px;
+    border: 1px solid #d8cafa;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    resize: vertical;
+    background: #fdfcff;
+}
+
+textarea:focus {
+    outline: 2px solid #bca1ff;
+    border-color: #7444d0;
+}
+
+button {
+    margin-top: 14px;
+    background: linear-gradient(100deg, #5424a8, #7844d0);
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(84, 36, 168, 0.22);
+}
+
+button:focus-visible {
+    outline: 3px solid #bca1ff;
+    outline-offset: 3px;
+}
+
+#result,
+#emergency {
+    margin-top: 16px;
+    padding: 15px;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+#result:empty,
+#emergency:empty {
+    display: none;
+}
+
+#result ul {
+    padding-left: 22px;
+}
+
+.card ul {
+    padding-left: 22px;
+}
+
+.card li {
+    margin-bottom: 10px;
+}
+
+footer {
+    background: #211d48;
+    color: white;
+    text-align: center;
+    padding: 24px 15px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@media (min-width: 760px) {
+    main {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .welcome {
+        grid-column: 1 / -1;
+    }
+
+    .card {
+        margin: 0;
+    }
+
+    .card:last-of-type {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    main {
+        padding: 0 12px;
+    }
+
+    .welcome {
+        padding: 25px 18px;
+    }
+
+    .card {
+        padding: 19px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+```css
+/* SafeCircle navigation */
+.navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e0ff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #4b2b98;
+    padding: 9px 13px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    background: #eee5ff;
+    outline-color: #7444d0;
+}
+
+.welcome > p:first-child {
+    color: #6335bd;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.explore-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: #6335bd;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.explore-button:hover {
+    background: #45218f;
+}
+
+.note {
+    color: #655d80;
+    font-size: 13px;
+}
+
+.emergency-info {
+    background: #fff0f7;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.emergency-info p {
+    margin: 6px 0;
+}
+
+main section[id] {
+    scroll-margin-top: 85px;
+}
+
+@media (max-width: 600px) {
+    .navigation {
+        gap: 4px;
+        position: static;
+    }
+    .navigation a {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .explore-button {
+        display: block;
+        text-align: center;
+    }
+}

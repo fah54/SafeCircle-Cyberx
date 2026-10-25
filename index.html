@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5424a8">
+    <meta name="description" content="SafeCircle provides women's digital safety awareness, scam warnings and emergency guidance.">
+    <title>SafeCircle | Women's Safety</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="home">
+        <h1>🛡️ SafeCircle</h1>
+        <p>Awareness. Prevention. Support.</p>
+    </header>
+
+    <nav class="navigation" aria-label="Main navigation">
+        <a href="#home">🏠 Home</a>
+        <a href="#checker">🔍 Scam Checker</a>
+        <a href="#emergency-section">🆘 Emergency</a>
+        <a href="#safety-guide">🛡️ Safety Guide</a>
+        <a href="#resources">📚 Resources</a>
+    </nav>
+
+    <main>
+
+        <section class="welcome">
+            <p><strong>WELCOME TO SAFECIRCLE</strong></p>
+            <h2>Your Safety,<br>Our Priority 💜</h2>
+            <p>
+                Your personal safety companion to help you stay aware,
+                prepared and supported in the digital and real world.
+            </p>
+            <a class="explore-button" href="#checker">Explore Safety Features →</a>
+        </section>
+
+        <section class="card" id="checker">
+            <h2>🔍 Suspicious Message Checker</h2>
+            <p>Check a message for common scam warning signs.</p>
+
+            <label for="message">Suspicious message</label>
+            <textarea id="message"
+                placeholder="Paste a suspicious message here..."></textarea>
+
+            <button type="button" onclick="checkMessage()">Check Message</button>
+
+            <div id="result" role="status" aria-live="polite"></div>
+            <p class="note">
+                This is a basic rule-based checker. It may miss scams
+                and cannot guarantee that a message is safe.
+            </p>
+        </section>
+
+        <section class="card" id="emergency-section">
+            <h2>🆘 Emergency Assistance</h2>
+            <p>
+                View emergency guidance and prepare an alert message
+                for a trusted contact.
+            </p>
+
+            <div class="emergency-info">
+                <strong>If you are in immediate danger:</strong>
+                <p>India emergency number: <strong>112</strong></p>
+                <p>Women's helpline: <strong>181</strong></p>
+                <p class="note">Helpline availability may vary by location.</p>
+            </div>
+
+            <button type="button" onclick="showEmergency()">
+                Open Emergency Assistance
+            </button>
+
+            <div id="emergency" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="card" id="safety-guide">
+            <h2>🛡️ Women's Safety Guide</h2>
+            <p>Simple steps that can help you prepare and stay safer.</p>
+
+            <ul>
+                <li>Tell a trusted person about your travel plans when appropriate.</li>
+                <li>Keep your phone charged and important contacts accessible.</li>
+                <li>Choose a safer public place if you feel threatened.</li>
+                <li>Trust your judgement and seek help when you feel unsafe.</li>
+                <li>Do not put yourself at greater risk to collect evidence.</li>
+            </ul>
+        </section>
+
+        <section class="card" id="resources">
+            <h2>📚 Digital Safety Centre</h2>
+            <p>Protect your information and online accounts.</p>
+
+            <ul>
+                <li>Never share OTPs, PINs or passwords with strangers.</li>
+                <li>Verify suspicious links before opening them.</li>
+                <li>Use strong, unique passwords for your accounts.</li>
+                <li>Enable two-factor authentication where available.</li>
+                <li>Save evidence of online harassment when safe to do so.</li>
+                <li>Report abusive accounts using the platform's official reporting tools.</li>
+            </ul>
+        </section>
+
+        <section class="card" id="trusted-support">
+            <h2>💜 You Are Not Alone</h2>
+            <p>
+                If you experience harassment or feel unsafe, consider
+                reaching out to someone you trust or an appropriate
+                support service.
+            </p>
+            <p>
+                In India, <strong>112</strong> is the emergency number.
+                For women-related assistance, <strong>181</strong>
+                may be available depending on your location.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <h2>🛡️ SafeCircle</h2>
+        <p>Awareness. Prevention. Support.</p>
+        <p>
+            This is a hackathon prototype. It does not automatically
+            contact emergency services, send alerts or share your location.
+        </p>
+        <p>SafeCircle | Building a safer tomorrow together 💜</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
